@@ -1,0 +1,133 @@
+.div-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  position: relative;
+  height: 100%;
+
+  .main-header {
+    position: relative;
+    border-bottom: 1px solid black;
+    height: 80px;
+    @extend .div-center;
+    font-size: 2rem;
+  }
+
+  .add-board-list-parent {
+    @extend .div-center;
+
+    .add-board-list {
+      width: 150px;
+      @extend .div-center;
+      height: 40px;
+      border: 1px solid black;
+      margin: 20px;
+      cursor: pointer;
+    }
+  }
+
+
+
+  .board-container {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    @media only screen and (min-width: 960px) and (max-width: 1279px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 959px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: 320px) and (max-width: 767px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    gap: 20px;
+
+    .board-parent-div {
+      height: 66vh;
+      border: 1px solid black;
+      position: relative;
+
+      .board-header {
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid black;
+        padding: 0 10px;
+
+        .cross-icon {
+          transform: rotate(135deg);
+          font-size: 30px;
+          cursor: pointer;
+        }
+
+        .card-title {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          margin-right: 10px;
+        }
+      }
+
+
+      .board-footer {
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        background: white;
+        @extend .div-center;
+        width: 100%;
+
+        .add-icon {
+          @extend .div-center;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          border: 1px solid black;
+          cursor: pointer;
+        }
+      }
+
+      .card-container {
+        padding: 10px;
+        height: 53vh;
+        overflow-y: scroll;
+
+
+        .card-parent-div {
+          border: 1px solid black;
+          padding: 0 10px 10px 10px;
+          margin-bottom: 20px;
+
+          .card-desc {
+            word-break: break-word;
+          }
+
+        }
+      }
+    }
+  }
+
+  .trello-empty {
+    @extend .div-center;
+    height: 70vh;
+
+    .add-board-list {
+      width: 150px;
+      @extend .div-center;
+      position: absolute;
+      height: 40px;
+      border: 1px solid black;
+      margin: 20px;
+      cursor: pointer;
+    }
+  }
+}
